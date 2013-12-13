@@ -7,12 +7,18 @@
   background: linear-gradient(@value);
 }
 
-.transform(@prop){ 
+.transform(@prop){
   -webkit-transform: @prop;
      -moz-transform: @prop;
       -ms-transform: @prop;
        -o-transform: @prop;
           transform: @prop;
+}
+
+.HW(){
+  -webkit-transform: translate3d(0,0,0);
+     -moz-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
 }
 
 .transformHW(@prop){
@@ -23,7 +29,7 @@
           transform: @prop translate3d(0,0,0);
 }
 
-.rotation(@deg:5deg){ 
+.rotation(@deg:5deg){
   .transformHW( rotate(@deg) );
 }
 
@@ -31,10 +37,10 @@
   .transformHW( scale(@ratio) );
 }
 
-.backface(@prop:hidden){ 
-  -webkit-backface-visibility: @prop; 
-     -moz-backface-visibility: @prop; 
-      -ms-backface-visibility: @prop; 
+.backface(@prop:hidden){
+  -webkit-backface-visibility: @prop;
+     -moz-backface-visibility: @prop;
+      -ms-backface-visibility: @prop;
           backface-visibility: @prop;
 }
 
@@ -46,7 +52,7 @@
           transition: transform @prop;
 }
 
-.transition(@prop,@prop2:X,...){ 
+.transition(@prop,@prop2:X,...){
   @prop: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
   -webkit-transition: @prop;
      -moz-transition: @prop;
@@ -80,7 +86,15 @@
   filter: e(%("dropshadow(color=%d, offx=%d, offy=%d)", @color, @horizontal, @vertical)); // IE9 and down
 }
 
-.grayscale(@perc) { 
+.filter(@filter) {
+  -webkit-filter: @filter;
+     -moz-filter: @filter;
+      -ms-filter: @filter;
+       -o-filter: @filter;
+          filter: @filter;
+}
+
+.grayscale(@perc) {
   -webkit-filter: grayscale(@perc);
      -moz-filter: grayscale(@perc);
       -ms-filter: grayscale(@perc);

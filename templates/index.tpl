@@ -2,6 +2,6 @@
 
 {% block content %}
 
-  {% include "modules/portfolio/_portfolio.tpl" %}
+  {% include "modules/posts/_posts.tpl" %}
 
 {% endblock %}
