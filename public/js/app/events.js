@@ -37,9 +37,8 @@
           $body = $('body'),
           lastScrollTop = 0;
       $(window).on('scroll.app', function() {
-
+        window.clearTimeout(debunce);
         var st = $(this).scrollTop();
-
 
         if (st < lastScrollTop){
           $body.removeClass('scroll-up');
@@ -51,7 +50,7 @@
 
         lastScrollTop = st;
 
-        window.clearTimeout(debunce);
+
         debunce = window.setTimeout(function() {
           //window.setTimeout(function() {
             $body.removeClass('scroll-down');
