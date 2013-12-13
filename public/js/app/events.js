@@ -32,6 +32,35 @@
       });
     },
 
+    scrollAnims: function(){
+      var debunce,
+          $body = $('body'),
+          lastScrollTop = 0;
+      $(window).on('scroll.app', function() {
+
+        var st = $(this).scrollTop();
+
+
+        if (st < lastScrollTop){
+          $body.removeClass('scroll-up');
+          $body.addClass('scroll-down');
+        } else {
+          $body.removeClass('scroll-down');
+          $body.addClass('scroll-up');
+        }
+
+        lastScrollTop = st;
+
+        window.clearTimeout(debunce);
+        debunce = window.setTimeout(function() {
+          //window.setTimeout(function() {
+            $body.removeClass('scroll-down');
+            $body.removeClass('scroll-up');
+          //}, 300);
+        }, 30);
+      });
+    },
+
     /**
      * Log the versions of the used plugins
      * @return {void}

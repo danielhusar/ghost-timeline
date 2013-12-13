@@ -28,6 +28,7 @@
 
     //global inits
     APP.events.lazyLoad();
+    APP.events.scrollAnims();
 
     //page custom inits
 
