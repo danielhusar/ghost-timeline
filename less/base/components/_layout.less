@@ -1,0 +1,53 @@
+body,
+html{
+  background: #ccc;
+}
+main{
+  background: white;
+  box-shadow: 0 0 5px #888;
+  border-radius: 5px;
+}
+body .left{
+  float: left;
+}
+body .right{
+  float: right;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+.row{
+  display: block;
+  width: 100%;
+  *min-width: 100%;
+  &:extend(.clearfix);
+}
+.unstyled{
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  &ul{
+    list-style: none;
+    li{
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+.padding{
+  display: block;
+  margin: @padding;
+}
+
+.module{
+  &:extend(.clearfix);
+  font-size: 0.9em;
+}
+
+//.make-grid-columns();
+.make-grid-columns(s);
+.make-grid-columns(m);
+.make-grid-columns(l);

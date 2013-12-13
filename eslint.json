@@ -1,0 +1,12 @@
+{
+    "env": {
+        "browser": false,
+        "node": false,
+        "amd": false
+    },
+
+    "rules": {
+        "no-underscore-dangle": 0,
+        "quotes": [2, "single"]
+    }
+}

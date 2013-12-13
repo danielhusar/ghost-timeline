@@ -1,0 +1,157 @@
+.gradient(@value1,@value2:X,...) {
+  @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+  background: -webkit-linear-gradient(@value);
+  background: -o-linear-gradient(@value);
+  background: -ms-linear-gradient(@value);
+  background: -moz-linear-gradient(@value);
+  background: linear-gradient(@value);
+}
+
+.transform(@prop){ 
+  -webkit-transform: @prop;
+     -moz-transform: @prop;
+      -ms-transform: @prop;
+       -o-transform: @prop;
+          transform: @prop;
+}
+
+.transformHW(@prop){
+  -webkit-transform: @prop translate3d(0,0,0);
+     -moz-transform: @prop translate3d(0,0,0);
+      -ms-transform: @prop;
+       -o-transform: @prop;
+          transform: @prop translate3d(0,0,0);
+}
+
+.rotation(@deg:5deg){ 
+  .transformHW( rotate(@deg) );
+}
+
+.scale(@ratio:1.5){
+  .transformHW( scale(@ratio) );
+}
+
+.backface(@prop:hidden){ 
+  -webkit-backface-visibility: @prop; 
+     -moz-backface-visibility: @prop; 
+      -ms-backface-visibility: @prop; 
+          backface-visibility: @prop;
+}
+
+.transformTransition(@prop){
+  -webkit-transition: -webkit-transform @prop;
+     -moz-transition: -moz-transform @prop;
+      -ms-transition: -o-transform @prop;
+       -o-transition: -ms-transform @prop;
+          transition: transform @prop;
+}
+
+.transition(@prop,@prop2:X,...){ 
+  @prop: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+  -webkit-transition: @prop;
+     -moz-transition: @prop;
+      -ms-transition: @prop;
+       -o-transition: @prop;
+          transition: @prop;
+}
+
+/* Shadows */
+.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
+  -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+     -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+          box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+
+.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
+  -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+     -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+          box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+
+.box-shadow(@shadow, @shadow2:X,...) {
+  @shadow: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+  -webkit-box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
+}
+
+.text-shadow(@horizontal: 1px, @vertical: 1px, @blur: 2px, @color: #000) {
+  text-shadow: @horizontal @vertical @blur @color;
+  filter: e(%("dropshadow(color=%d, offx=%d, offy=%d)", @color, @horizontal, @vertical)); // IE9 and down
+}
+
+.grayscale(@perc) { 
+  -webkit-filter: grayscale(@perc);
+     -moz-filter: grayscale(@perc);
+      -ms-filter: grayscale(@perc);
+       -o-filter: grayscale(@perc);
+          filter: grayscale(@perc);
+}
+
+
+
+//Grid mixins
+.make-grid-columns(@class) {
+  .col(@index) when (@index = 1) { // initial
+    @item: ~".col-@{class}@{index}";
+    .col(@index + 1, @item);
+  }
+  .col(@index, @list) when (@index < @grid-columns) { // general
+    @item: ~".col-@{class}@{index}";
+    .col(@index + 1, ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index = @grid-columns) { // terminal
+    @{list} {
+      display: block;
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+    }
+  }
+  .col(1); // kickstart it
+}
+
+.make-grid-columns-float(@class) {
+  .col(@index) when (@index = 1) { // initial
+    @item: ~".col-@{class}@{index}";
+    .col(@index + 1, @item);
+  }
+  .col(@index, @list) when (@index < @grid-columns) { // general
+    @item: ~".col-@{class}@{index}";
+    .col(@index + 1, ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index = @grid-columns) { // terminal
+    @{list} {
+      float: left;
+    }
+  }
+  .col(1); // kickstart it
+}
+
+.calc-grid(@index, @class, @type) when (@type = width) {
+  .col-@{class}@{index} {
+    width: percentage((@index / @grid-columns));
+  }
+}
+.calc-grid(@index, @class, @type) when (@type = push) {
+  .col-@{class}-push-@{index} {
+    left: percentage((@index / @grid-columns));
+  }
+}
+.calc-grid(@index, @class, @type) when (@type = pull) {
+  .col-@{class}-pull-@{index} {
+    right: percentage((@index / @grid-columns));
+  }
+}
+.calc-grid(@index, @class, @type) when (@type = offset) {
+  .col-@{class}-offset-@{index} {
+    margin-left: percentage((@index / @grid-columns));
+  }
+}
+
+// Basic looping in LESS
+.make-grid(@index, @class, @type) when (@index > 0) {
+  .calc-grid(@index, @class, @type);
+  // next iteration
+  .make-grid(@index - 1, @class, @type);
+}

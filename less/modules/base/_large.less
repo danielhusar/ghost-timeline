@@ -1,0 +1,21 @@
+body{
+  width: 1024px;
+  margin: 0 auto;
+}
+
+//large grid
+.make-grid-columns-float(l);
+.make-grid(@grid-columns, l, width);
+
+.gutter-l-right > *{
+	margin-right: @padding;
+}
+.gutter-l-left > *{
+	margin-left: @padding;
+}
+.gutter-l-top > *{
+	margin-top: @padding;
+}
+.gutter-l-bottom > *{
+	margin-bottom: @padding;
+}
