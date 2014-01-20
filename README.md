@@ -1,7 +1,5 @@
 ## Ghost-timeline theme for ghost blogging platform
 
-<hr>
-
 ###Screenshots
 
 ![ScreenShot](https://raw.github.com/danielhusar/ghost-timeline/master/assets/img/01_preview1.jpg)
