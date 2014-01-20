@@ -26,17 +26,6 @@
     "grunt-contrib-less": "*",
     "grunt-eslint": "*",
     "grunt-jsbeautifier": "*",
-    "grunt-plato": "*",
-    "grunt-mocha": "~0.3.0",
-    "grunt-swig": "0.1.0",
-    "grunt-string-replace": "*",
-    "grunt-localscreenshots": "*",
-    "grunt-open": "*",
-    "grunt-spritesmith": "~1.11.2",
-    "grunt-contrib-imagemin": "*",
-    "load-grunt-tasks": "*",
-    "mocha": "*",
-    "chai": "*",
-    "sinon": "*"
+    "load-grunt-tasks": "*"
   }
 }

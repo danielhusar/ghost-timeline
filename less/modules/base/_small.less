@@ -1,34 +1,51 @@
 html{
 	height: 100%;
-	min-height: 100%;
+	font-family: 'Noto Serif', serif;
+	overflow-x: hidden;
 }
 body{
   min-width: 320px;
   min-height: 100%;
   padding: @padding;
+  overflow-x: hidden;
   background: url('../img/bg-blur.png') repeat;
-  /*
-  &:before{
-  	content: ' ';
-  	display: block;
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	right: 0;
-  	bottom: 0;
-  	width: 100%;
-  	height: 100%;
-  	min-height: 100%;
-  	background: url('../img/bg.png') repeat;
-  	z-index: 1;
-  	//.HW();
-  	//.filter(blur(30px));
-  }
-  */
 }
-#wrap{
+main{
+	width: 200%;
+	.transformTransition(0.5s);
+	> div{
+		width: 50%;
+		float: left;
+	}
+}
+.post-template{
+	main{
+		.transformHW(translate(-50%, 0));
+	}
+}
+
+.post-wrap,
+.posts-wrap{
+	overflow: hidden;
+}
+
+.post-wrap{
+	max-height: 1px;
+}
+.posts-hidden .post-wrap{
+	max-height: none;
+}
+.posts-hidden .posts-wrap{
+	max-height: 1px;
+}
+
+.wrap{
 	position: relative;
 	z-index: 2;
+  &:extend(.clearfix);
+  min-height: 100%;
+	height: auto!important;
+	height: 100%;
 }
 //grid content
 .make-grid-columns-float(s);
@@ -47,57 +64,13 @@ body{
 	margin-bottom: @padding;
 }
 
-
-article{
-  background: white;
-  border: 1px solid #ccc;
-  border-radius :3px;
-  padding: 15px;
-  margin-bottom: 30px;
-  position: relative;
-  .transformTransition(0.2s);
-}
-
-@iterations: 10;
-@unit: "s";
-.loopingClass (@index) when (@index > 0) {
-
-  .anim-s article:nth-child(@{index}){
-    animation-name: bounceBottom;
-    -webkit-animation-name: bounceBottom;
-    animation-duration: 0.2s ;
-    -webkit-animation-duration: 0.2s;
-    animation-delay: 0.01s + @index/20;
-    -webkit-animation-delay: 0.01s + @index/20;
-    animation-timing-function: ease;
-    -webkit-animation-timing-function: ease;
-  }
-
-  .scroll-down article:nth-child(@{index}){
-    transition-delay: 0.01s + @index/20;
-    -webkit-transition-delay: 0.01s + @index/20;
-  }
-
-  .scroll-up article:nth-child(@{index}){
-    transition-delay: 0.01s + @index/20;
-    -webkit-transition-delay: 0.01s + @index/20;
-  }
-
-  // next iteration
-  .loopingClass(@index - 1);
-}
-
-// end the loop when index is 0
-.loopingClass (0) {}
-// "call" the loopingClass the first time with highest value
-.loopingClass (@iterations);
-
-.scroll-down article{
-  .transformHW(translate(0, 5px));
-  .transition(margin);
-}
-
-.scroll-up article{
-  .transformHW(translate(0, -5px));
-  .transition(margin);
+.overlay{
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: 100;
+	display: block;
+	background: black;
 }

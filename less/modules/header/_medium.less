@@ -1,2 +1,54 @@
-.module-header{
+.site-head{
+	font-size: 1em;
+	position: relative;
+	&:after{
+		content: ' ';
+		display: block;
+		position: absolute;
+		width: 15px;
+		background: white;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		height: 100%;
+		min-height: 100%;
+		margin-left: -9.5px;
+		border-left: 1px solid @borderColor;
+		border-right: 1px solid @borderColor;
+		z-index: 1;
+	}
+}
+.blog-desc,
+.social{
+	float: left;
+	width: 40%;
+}
+.social{
+	text-align: right;
+	clear: none;
+}
+.blog-logo-wrap{
+	position: relative;
+	z-index: 2;
+	float: left;
+	width: 20%;
+	.blog-logo{
+		z-index: 2;
+		background: white;
+		border-radius: 50%;
+		padding: 15px;
+		border: 1px solid @borderColor;
+	}
+	.sep{
+		content: ' ';
+		width: 15px;
+		height: 5px;
+		position: absolute;
+		bottom: -3px;
+		left: 50%;
+		display: block;
+		background: white;
+		margin-left: -8.5px;
+		z-index: 10;
+	}
 }

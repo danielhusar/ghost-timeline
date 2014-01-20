@@ -1,2 +1,58 @@
-.module-header{
+.site-head{
+	overflow: hidden;
+	padding-bottom: 20px;
+	font-size: 0.8em;
+}
+.blog-desc{
+	float: left;
+	width: 60%;
+}
+
+.blog-logo-wrap{
+	float: left;
+	width: 40%;
+	a:hover{
+		opacity: 1;
+	}
+	img{
+		border-radius: 50%;
+		.transformTransition(0.4s);
+		&:hover{
+			.rotation(360deg);
+		}
+	}
+}
+
+
+.social{
+	overflow: hidden;
+	clear:both;
+	padding-top: 10px;
+	a{
+		opacity: 0.5;
+		border: 1px solid @borderColor;
+		padding: 5px;
+		background: white;
+		border-radius: 50%;
+		display: inline-block;
+		width: 40px;
+		text-align: center;
+		font-size: 20px;
+		-webkit-backface-visibility: hidden;
+	}
+	a:hover{
+		opacity: 1;
+	}
+}
+
+.blog-desc{
+	text-align: right;
+	padding-right: 20px;
+	h1,h2{
+		margin-bottom: 0;
+		font-weight: normal;
+	}
+	h2{
+		margin-top: 5px;
+	}
 }

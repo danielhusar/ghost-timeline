@@ -1,0 +1,198 @@
+.posts{
+	article{
+		position: relative;
+		z-index: 10;
+		.post-meta{
+			position: absolute;
+			right: 10px;
+			z-index: 10;
+			top: 10px;
+			font-size: 0.9em;
+			font-style: italic;
+			color: #817B7B;
+			&.hidden{
+				display: block !important;
+				visibility: visible;
+			}
+		}
+		section{
+		  background: white;
+		  border: 1px solid @borderColor;
+		  border-radius: 5px;
+		  padding: 15px;
+		  margin-bottom: 30px;
+		  position: relative;
+		  .gradient(#FFF, #F8F8F8);
+		  > :first-child{
+				margin-top: 0;
+			}
+			> :last-child{
+				margin-bottom: 0;
+			}
+		}
+		header{
+			//boder-bottom: 1px solid @borderColor;
+			h2{
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+.pagination-wrap{
+	text-align: center;
+	.pagination{
+		background: white;
+		padding: 15px;
+		border: 1px solid @borderColor;
+		border-radius: 30px;
+		display: inline-block;
+		z-index: 1;
+		margin-top: -1px;
+	}
+}
+
+article.post{
+	background: white;
+	border: 1px solid @borderColor;
+	padding: 15px;
+	border-radius: 5px;
+	position: relative;
+	.gradient(#FFF, #F8F8F8);
+	> :first-child{
+		margin-top: 0;
+	}
+	> :last-child{
+		margin-bottom: 0;
+	}
+	.post-meta{
+		right: 15px;
+		z-index: 10;
+		top: 15px;
+		font-size: 0.9em;
+		color: #817B7B;
+		.time{
+			float: left;
+			width: 50%;
+			text-align: left;
+		}
+		.tags{
+			float: right;
+			width: 50%;
+			text-align: right;
+			span{
+				display: inline-block;
+				margin-left: 10px;
+				i{
+					padding-right: 5px;
+				}
+
+			}
+		}
+	}
+	header{
+		overflow: hidden;
+		padding-bottom: 15px;
+		border-bottom: 1px solid @borderColor;
+	}
+	header h1{
+		margin-top: 0;
+	}
+	input[type="text"],
+	input[type="tel"],
+	input[type="number"],
+	textarea{
+		border: 1px solid @borderColor;
+		font-size: 0.8em;
+		height: 30px;
+		padding: 0 5px;
+		width: 200px;
+	}
+	textarea{
+		width: 100%;
+		height: 150px;
+	}
+	form{
+		p{
+			margin-top: 0;
+			padding: 0;
+			clear: both;
+		}
+		> *{
+			margin-bottom: 10px;
+		}
+		label{
+			float: left;
+			width: 200px;
+			display: block;
+		}
+	}
+	.share{
+		float: right;
+		margin-top: 15px;
+	}
+	.author{
+		background: white;
+		padding: 10px;
+		overflow: hidden;
+		img{
+			float: left;
+			margin-right: 10px;
+		}
+		h4,
+		p{
+			margin-bottom: 0;
+		}
+		p{
+			margin-top: 5px;
+			font-size: 0.8em;
+		}
+	}
+	@import "base/components/_casper";
+}
+
+.pagination span{
+	display: inline-block;
+	padding: 0 10px;
+	vertical-align: middle;
+	top: -2px;
+	position: relative;
+}
+.pagination a i{
+	display: inline-block;
+	font-size: 20px;
+}
+.pagination a.disabled{
+	opacity: 0.2;
+}
+
+input[type="submit"],
+input[type="button"],
+button{
+	min-height: 35px;
+	width: auto;
+	display: inline-block;
+	padding: 0.9em 1.37em;
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+	font-size: 11px;
+	line-height: 13px;
+	text-align: center;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-shadow: none;
+	border-radius: 0.2em;
+	border: rgba(0,0,0,0.05) 0.1em solid;
+	-webkit-transition: background 0.3s ease,border-color 0.3s ease;
+	-moz-transition: background 0.3s ease,border-color 0.3s ease;
+	transition: background 0.3s ease,border-color 0.3s ease;
+	background: #5ba4e5;
+	-webkit-appearance: button;
+	margin: 0;
+	outline: 0;
+	&:hover{
+		background: #2f8cde;
+	}
+}
+

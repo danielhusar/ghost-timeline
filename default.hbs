@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{! Styles'n'Scripts }}
+    <link rel="stylesheet" href="{{asset "css/style.css"}}">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400">
+
+    <script src="{{asset "js/libraries/modernizr-2.7.1.min.js"}}"></script>
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}} out">
+
+    <div class="overlay"></div>
+
+    {{! Everything else gets inserted here }}
+    <main>
+        <div class="posts-wrap">
+            <div class="wrap" data-wrap="posts">
+                {{{body}}}
+            </div>
+        </div>
+        <div class="post-wrap">
+            <div class="wrap" data-wrap="post">
+            </div>
+        </div>
+    </main>
+
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+
+    {{! The main JavaScript file for Casper }}
+    <script src="{{asset "js/plugins.js"}}"></script>
+    <script src="{{asset "js/app.js"}}"></script>
+
+</body>
+</html>

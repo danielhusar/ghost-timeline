@@ -1,0 +1,57 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! The big featured header on the homepage, with the site logo and description }}
+<header class="site-head">
+    <div class="blog-desc">
+        <h1 class="blog-title">{{@blog.title}}</h1>
+        <h2 class="blog-description">{{@blog.description}}</h2>
+    </div>
+    <div class="blog-logo-wrap">
+        <div class="flipper blog-logo">
+            {{#if @blog.logo}}<a href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo"></a>{{/if}}
+        </div>
+        <div class="sep"></div>
+    </div>
+    <div class="social">
+        <a href="#"><i class="fa-facebook"></i></a>
+        <a href="#"><i class="fa-github"></i></a>
+        <a href="#"><i class="fa-google-plus"></i></a>
+        <a href="#"><i class="fa-linkedin"></i></a>
+        <a href="#"><i class="fa-twitter"></i></a>
+        <a href="#"><i class="fa-rss"></i></a>
+    </div>
+</header>
+
+
+<div class="posts" data-posts>
+
+    {{! Each post will be output using this markup }}
+    {{#foreach posts}}
+
+        <article data-post="preview">
+            <span class="post-meta" data-post="meta">
+                <i class="fa-calendar"></i>
+                <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+            </span>
+            <section>
+                <header>
+                    <h2 class="post-title"><a href="{{url}}" data-post="url">{{{title}}}</a></h2>
+                </header>
+                <p>{{excerpt}}&hellip;</p>
+            </section>
+        </article>
+
+    {{/foreach}}
+
+    <div class="clearfix"></div>
+
+</div>
+
+
+{{!! After all the posts, we have the previous/next pagination links }}
+<div class="pagination-wrap" data-post="pagination">
+    {{pagination}}
+</div>
