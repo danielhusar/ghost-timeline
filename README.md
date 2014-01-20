@@ -1,6 +1,12 @@
-# Ghost-timeline theme for ghost blogging platform
+## Ghost-timeline theme for ghost blogging platform
 
-##Screenshots
+<hr>
+
+###Screenshots
+
+![ScreenShot](https://raw.github.com/danielhusar/ghost-timeline/master/assets/img/01_preview1.jpg)]
+
+![ScreenShot](https://raw.github.com/danielhusar/ghost-timeline/master/assets/img/02_preview2.jpg)]
 
 
 ###Fetures
@@ -27,3 +33,5 @@
 - Structured CSS with Less
 - Well structured markup
 - Iconfont
+
+### Licence MIT
