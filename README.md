@@ -4,9 +4,9 @@
 
 ###Screenshots
 
-![ScreenShot](https://raw.github.com/danielhusar/ghost-timeline/master/assets/img/01_preview1.jpg)]
+![ScreenShot](https://raw.github.com/danielhusar/ghost-timeline/master/assets/img/01_preview1.jpg)
 
-![ScreenShot](https://raw.github.com/danielhusar/ghost-timeline/master/assets/img/02_preview2.jpg)]
+![ScreenShot](https://raw.github.com/danielhusar/ghost-timeline/master/assets/img/02_preview2.jpg)
 
 
 ###Fetures
